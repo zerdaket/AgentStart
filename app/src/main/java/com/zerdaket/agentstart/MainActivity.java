@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
         firstBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, FirstActivity.class)
-                        .putExtra("From", "From: MainActivity FirstButton");
+                Intent intent = new Intent().putExtra("From", "From: MainActivity FirstButton");
                 AgentStart.with(MainActivity.this)
                         .setResultListener(new AgentStart.ResultListener() {
                             @Override
@@ -35,15 +34,14 @@ public class MainActivity extends AppCompatActivity {
                                 resultTv.setText(data.getStringExtra("Result"));
                             }
                         })
-                        .startForResult(intent);
+                        .startForResult(FirstActivity.class, intent);
             }
         });
 
         secondBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class)
-                        .putExtra("From", "From: MainActivity SecondButton");
+                Intent intent = new Intent().putExtra("From", "From: MainActivity SecondButton");
                 AgentStart.with(MainActivity.this)
                         .setResultListener(new AgentStart.ResultListener() {
                             @Override
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                                 resultTv.setText(data.getStringExtra("Result"));
                             }
                         })
-                        .startForResult(intent);
+                        .startForResult(SecondActivity.class, intent);
             }
         });
 

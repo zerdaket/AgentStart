@@ -36,8 +36,7 @@ public class MainFragment extends Fragment {
         firstBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), FirstActivity.class)
-                        .putExtra("From", "From: MainFragment FirstButton");
+                Intent intent = new Intent().putExtra("From", "From: MainFragment FirstButton");
                 AgentStart.with(MainFragment.this)
                         .setResultListener(new AgentStart.ResultListener() {
                             @Override
@@ -46,15 +45,14 @@ public class MainFragment extends Fragment {
                                 resultTv.setText(data.getStringExtra("Result"));
                             }
                         })
-                        .startForResult(intent);
+                        .startForResult(FirstActivity.class, intent);
             }
         });
 
         secondBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), SecondActivity.class)
-                        .putExtra("From", "From: MainFragment SecondButton");
+                Intent intent = new Intent().putExtra("From", "From: MainFragment SecondButton");
                 AgentStart.with(MainFragment.this)
                         .setResultListener(new AgentStart.ResultListener() {
                             @Override
@@ -63,7 +61,7 @@ public class MainFragment extends Fragment {
                                 resultTv.setText(data.getStringExtra("Result"));
                             }
                         })
-                        .startForResult(intent);
+                        .startForResult(SecondActivity.class, intent);
             }
         });
 

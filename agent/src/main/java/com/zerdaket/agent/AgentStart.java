@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import java.util.Random;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -49,7 +50,31 @@ public class AgentStart {
             return this;
         }
 
-        public void startForResult(Intent intent) {
+        public void start(@NonNull Class<? extends AppCompatActivity> activityClass) {
+            start(activityClass, null);
+        }
+
+        public void start(@NonNull Class<? extends AppCompatActivity> activityClass, Intent intent) {
+            if (intent == null) {
+                intent = new Intent();
+            }
+            if (mActivity == null) {
+                mFragment.startActivity(intent.setClass(mFragment.getContext(), activityClass));
+            } else {
+                mActivity.startActivity(intent.setClass(mActivity, activityClass));
+            }
+        }
+
+        public void startForResult(@NonNull Class<? extends AppCompatActivity> activityClass) {
+            startForResult(activityClass, null);
+        }
+
+        public void startForResult(@NonNull Class<? extends AppCompatActivity> activityClass, Intent intent) {
+            if (intent == null) {
+                intent = new Intent();
+            }
+            intent.setClass(mActivity == null ? mFragment.getContext() : mActivity, activityClass);
+
             int requestCode = new Random().nextInt(0x0000FFFF);
             FragmentManager fragmentManager = getFragmentManager();
             ResultFragment resultFragment = findResultFragment(fragmentManager);

@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.zerdaket.agent.AgentStart;
+import com.zerdaket.agent.result.ResultListener;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent().putExtra("From", "From: MainActivity FirstButton");
                 AgentStart.with(MainActivity.this)
-                        .setResultListener(new AgentStart.ResultListener() {
+                        .setResultListener(new ResultListener() {
                             @Override
                             public void onResult(int resultCode, Intent data) {
                                 if (resultCode != RESULT_OK) return;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent().putExtra("From", "From: MainActivity SecondButton");
                 AgentStart.with(MainActivity.this)
-                        .setResultListener(new AgentStart.ResultListener() {
+                        .setResultListener(new ResultListener() {
                             @Override
                             public void onResult(int resultCode, Intent data) {
                                 if (resultCode != RESULT_OK) return;

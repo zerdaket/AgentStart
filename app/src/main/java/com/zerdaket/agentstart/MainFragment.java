@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.zerdaket.agent.AgentStart;
+import com.zerdaket.agent.result.ResultListener;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,7 +39,7 @@ public class MainFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent().putExtra("From", "From: MainFragment FirstButton");
                 AgentStart.with(MainFragment.this)
-                        .setResultListener(new AgentStart.ResultListener() {
+                        .setResultListener(new ResultListener() {
                             @Override
                             public void onResult(int resultCode, Intent data) {
                                 if (resultCode != RESULT_OK) return;
@@ -54,7 +55,7 @@ public class MainFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent().putExtra("From", "From: MainFragment SecondButton");
                 AgentStart.with(MainFragment.this)
-                        .setResultListener(new AgentStart.ResultListener() {
+                        .setResultListener(new ResultListener() {
                             @Override
                             public void onResult(int resultCode, Intent data) {
                                 if (resultCode != RESULT_OK) return;

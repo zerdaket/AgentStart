@@ -21,7 +21,7 @@ public class FirstActivity extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.tv_from);
 
-        if (getIntent() != null) {
+        if (getIntent() != null && getIntent().getStringExtra("From") != null) {
             textView.setText(getIntent().getStringExtra("From"));
         }
 

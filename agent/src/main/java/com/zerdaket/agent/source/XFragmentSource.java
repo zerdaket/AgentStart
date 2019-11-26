@@ -1,5 +1,6 @@
 package com.zerdaket.agent.source;
 
+import android.app.Activity;
 import android.content.Intent;
 
 import com.zerdaket.agent.result.ResultFragment;
@@ -8,7 +9,6 @@ import com.zerdaket.agent.result.ResultListener;
 import java.util.Random;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -33,12 +33,12 @@ public class XFragmentSource implements ResultSource {
     }
 
     @Override
-    public void start(@NonNull Class<? extends AppCompatActivity> activityClass) {
+    public void start(@NonNull Class<? extends Activity> activityClass) {
         start(activityClass, null);
     }
 
     @Override
-    public void start(@NonNull Class<? extends AppCompatActivity> activityClass, Intent intent) {
+    public void start(@NonNull Class<? extends Activity> activityClass, Intent intent) {
         if (intent == null) {
             intent = new Intent();
         }
@@ -46,12 +46,12 @@ public class XFragmentSource implements ResultSource {
     }
 
     @Override
-    public void startForResult(@NonNull Class<? extends AppCompatActivity> activityClass) {
+    public void startForResult(@NonNull Class<? extends Activity> activityClass) {
         startForResult(activityClass, null);
     }
 
     @Override
-    public void startForResult(@NonNull Class<? extends AppCompatActivity> activityClass, Intent intent) {
+    public void startForResult(@NonNull Class<? extends Activity> activityClass, Intent intent) {
         if (intent == null) {
             intent = new Intent();
         }

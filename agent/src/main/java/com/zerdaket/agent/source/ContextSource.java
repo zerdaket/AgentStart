@@ -1,10 +1,10 @@
 package com.zerdaket.agent.source;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by zerdaket on 2019-11-26.
@@ -18,12 +18,12 @@ public class ContextSource implements Source {
     }
 
     @Override
-    public void start(@NonNull Class<? extends AppCompatActivity> activityClass) {
+    public void start(@NonNull Class<? extends Activity> activityClass) {
         start(activityClass, null);
     }
 
     @Override
-    public void start(@NonNull Class<? extends AppCompatActivity> activityClass, Intent intent) {
+    public void start(@NonNull Class<? extends Activity> activityClass, Intent intent) {
         if (intent == null) {
             intent = new Intent();
         }

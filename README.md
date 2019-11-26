@@ -22,7 +22,7 @@ AgentStart.with(MainActivity.this).start(FirstActivity.class, intent);
 
 ```java
 AgentStart.with(MainFragment.this)
-        .setResultListener(new AgentStart.ResultListener() {
+        .setResultListener(new ResultListener() {
             @Override
             public void onResult(int resultCode, Intent data) {
                 // TODO
@@ -35,7 +35,7 @@ AgentStart.with(MainFragment.this)
 
 ```java
 AgentStart.with(MainFragment.this)
-        .setResultListener(new AgentStart.ResultListener() {
+        .setResultListener(new ResultListener() {
             @Override
             public void onResult(int resultCode, Intent data) {
                 // TODO
